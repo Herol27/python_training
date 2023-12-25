@@ -7,10 +7,13 @@ from pydantic import BaseModel
 from csv_to_dict_converter import convert_csv_to_dict
 from different_registers_finder import find_in_different_registers
 
+
 class WordList(BaseModel):
     words: list
 
+
 app = FastAPI(title="My API")
+
 
 @app.post("/average_age_by_position")
 def calculate_average_age_by_position(response: Response, csv_file: UploadFile = File(...)):
