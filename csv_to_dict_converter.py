@@ -1,19 +1,22 @@
 import pandas as pd
 
 
-def convert_csv_to_dict(csv_file):
-    res = {}
+def convert_csv_to_dict(csv_file: pd.DataFrame):
+    result_dictionary = dict()
     for i, row in csv_file.iterrows():
-        if row['Должность'] in res:
-            (res[row['Должность']].append(row['Возраст']))
+        if row['Должность'] in result_dictionary:
+            if row['Возраст'] >= 0:
+                result_dictionary[row['Должность']].append(row['Возраст'])
         else:
-            res[row['Должность']] = []
-            res[row['Должность']].append(row['Возраст'])
-    for i in res:
-        res[i] = sum(res[i]) / len(res[i])
-    return res
+            result_dictionary[row['Должность']] = []
+            if row['Возраст'] >= 0:
+                result_dictionary[row['Должность']].append(row['Возраст'])
+    for i in result_dictionary:
+        result_dictionary[i] = sum(result_dictionary[i]) / len(result_dictionary[i]) if result_dictionary[i] else None
+    return result_dictionary
 
 
 if __name__ == '__main__':
-    result = convert_csv_to_dict(pd.read_csv("employees.csv"))
+    df = pd.read_csv("employees.csv")
+    result = convert_csv_to_dict(df)
     print(result)
