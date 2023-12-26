@@ -17,6 +17,6 @@ def convert_csv_to_dict(csv_file: pd.DataFrame):
 
 
 if __name__ == '__main__':
-    df = pd.read_csv("employees.csv")
+    df = pd.read_csv("../testfiles/employees.csv")
     result = convert_csv_to_dict(df)
     print(result)

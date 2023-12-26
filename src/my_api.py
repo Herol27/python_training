@@ -4,8 +4,8 @@ import uvicorn
 from fastapi import FastAPI, File, UploadFile, Response
 from pydantic import BaseModel
 
-from csv_to_dict_converter import convert_csv_to_dict
-from different_registers_finder import find_in_different_registers
+from functions.csv_to_dict_converter import convert_csv_to_dict
+from functions.different_registers_finder import find_in_different_registers
 
 
 class WordList(BaseModel):
