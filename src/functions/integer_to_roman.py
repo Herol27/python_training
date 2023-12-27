@@ -25,8 +25,6 @@ def int_to_roman(num: int):
 
 
 if __name__ == '__main__':
-    print(int_to_roman(100000), "XXXII")
     print(int_to_roman(33), "XXXIII")
-    print(int_to_roman(34), "XXXIV")
     print(int_to_roman(54), "LIV")
     print(int_to_roman(1984), "MCMLXXXIV")
