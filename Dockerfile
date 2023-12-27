@@ -9,8 +9,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-#WORKDIR src
+WORKDIR src
 
-#CMD uvicorn src/todolist_api:app --host 0.0.0.0 --port 8000 --reload
+CMD uvicorn todolist_api:app --host 0.0.0.0 --port 8000 --reload
 
 #ENTRYPOINT ["top", "-b"]
